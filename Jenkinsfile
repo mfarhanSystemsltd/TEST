@@ -41,8 +41,6 @@ pipeline {
                     gv.deployApp() 
                          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '3ecc0f63-a467-4748-b965-53a8d15a3000', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
                                 sh ('heroku git:remote -a aqueous-bayou-58074')
-                                sh ('git checkout master')
-				sh ('git branch -M master')
 				sh ('git push --force heroku master')
                          }
                 }
