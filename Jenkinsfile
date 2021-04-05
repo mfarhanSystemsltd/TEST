@@ -40,7 +40,8 @@ pipeline {
                 script {
                     gv.deployApp() 
                          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '3ecc0f63-a467-4748-b965-53a8d15a3000', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
-			       sh ('git remote set-url origin https://git.heroku.com/aqueous-bayou-58074.git')
+			       sh ('git add .')
+			       sh ('git commit -m "heroku commit')
 			       sh ('heroku git:remote -a aqueous-bayou-58074')
 			       sh ('git push --force heroku master')
                          }
