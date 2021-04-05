@@ -44,7 +44,7 @@ pipeline {
 			       sh ('git remote add origin https://git.heroku.com/aqueous-bayou-58074.git')
 			       sh ('git remote set-url origin https://git.heroku.com/aqueous-bayou-58074.git')
 			       sh ('git add .')
-			       sh ('git branch -M master
+			       sh ('git branch -M master')
 			       sh ('git push -u origin master')
                          }
                 }
