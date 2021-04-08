@@ -39,16 +39,37 @@ pipeline {
             steps {
                 script {
                     gv.deployApp() 
-                         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '3ecc0f63-a467-4748-b965-53a8d15a3000', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
-			       sh ('git init')
-			       sh ('git remote set-url origin https://git.heroku.com/aqueous-bayou-58074.git')
-			       sh ('git add .')
-			       sh ('git branch -M master')
-			       sh ('git push -u origin master')
-                         }
+			sshPublisher(
+					publishers: 
+					     [
+						     sshPublisherDesc
+						     (
+							configName: 'server1', 
+							transfers: 
+							[
+								sshTransfer(
+									cleanRemote: false, 
+									excludes: '', 
+									execCommand: '', 
+									execTimeout: 120000, 
+									flatten: false, 
+									makeEmptyDirs: false, 
+									noDefaultExcludes: false, 
+									patternSeparator: '[, ]+', 
+									remoteDirectory: '//var/www/example.com/html', 
+									remoteDirectorySDF: false, 
+									removePrefix: '', 
+									sourceFiles: '**'
+								)
+						], 
+						usePromotionTimestamp: false, 
+						useWorkspaceInPromotion: false, 
+						verbose: false
+						     )
+					     ]
+				    )
                 }
             }
         }
     }
 }
-    

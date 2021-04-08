@@ -12,7 +12,7 @@ expect "Password:";
 
 send "Farru1998";
 
-send "\r";
+send "\n";
 
 interact
 
