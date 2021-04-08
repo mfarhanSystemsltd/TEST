@@ -44,22 +44,22 @@ pipeline {
 					     [
 						     sshPublisherDesc
 						     (
-							configName: 'server1', 
+							configName: 'server2', 
 							transfers: 
 							[
 								sshTransfer(
 									cleanRemote: false, 
 									excludes: '', 
-									execCommand: '', 
+									execCommand: 'kubectl set image deployment/simpleapp-deployment k8s_simpleapp-container_simpleapp-deployment-5467bff66-59pdn_default_85377c89-286a-43d5-afd5-e3848772ede5_0=mfarhan1998/simpleapp:1.0', 
 									execTimeout: 120000, 
 									flatten: false, 
 									makeEmptyDirs: false, 
 									noDefaultExcludes: false, 
 									patternSeparator: '[, ]+', 
-									remoteDirectory: '//var/www/example.com/html', 
+									remoteDirectory: '', 
 									remoteDirectorySDF: false, 
 									removePrefix: '', 
-									sourceFiles: '**'
+									sourceFiles: ''
 								)
 						], 
 						usePromotionTimestamp: false, 
