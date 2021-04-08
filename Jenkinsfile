@@ -50,7 +50,7 @@ pipeline {
 								sshTransfer(
 									cleanRemote: false, 
 									excludes: '', 
-									execCommand: 'kubectl set image deployment/simpleapp-deployment k8s_POD_simpleapp-deployment-5467bff66-59pdn_default_85377c89-286a-43d5-afd5-e3848772ede5_0=mfarhan1998/simpleapp:1.0', 
+									execCommand: 'kubectl set image deployment/simpleapp-deployment simpleapp-container=10.82.3.49:3000/mfarhan1998/simpleapp:1.0 --record', 
 									execTimeout: 120000, 
 									flatten: false, 
 									makeEmptyDirs: false, 
