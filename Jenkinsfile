@@ -29,7 +29,7 @@ pipeline {
 	stage('build and push image') {
             steps {
                 script {
-                    buildImage 'mfarhan1998/simpleapp'
+			buildImage 'mfarhan1998/simpleapp:${BUILD_NUMBER}'
                     // dockerLogin()
                     // dockerPush 'armughanahmed/shared-lib-app:sla-3.0'
                 }
