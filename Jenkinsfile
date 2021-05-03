@@ -44,7 +44,7 @@ pipeline {
 					     [
 						     sshPublisherDesc
 						     (
-							configName: 'server2', 
+							configName: 'server3', 
 							transfers: 
 							[
 								sshTransfer(
