@@ -19,13 +19,6 @@ pipeline {
                 }
             }
         }
-        stage('check branch') {
-            steps {
-                script {
-                    branch()
-                }
-            }
-        }
 	stage('build and push image') {
             steps {
                 script {
